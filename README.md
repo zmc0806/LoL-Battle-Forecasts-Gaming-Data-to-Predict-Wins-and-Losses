@@ -173,6 +173,40 @@ Given the p-value of 0.342, which is greater than the significance level of 0.05
 
 It is critical to approach these results with an understanding that they do not definitively prove the absence of bias; rather, they indicate that within the constraints of our analysis, bias was not detected. Fairness in predictive modeling is a multifaceted issue that extends beyond statistical measures and should be considered with broader ethical perspectives.
 
-#### Optional Visualization
+#### Visualization
 
 <iframe src="assets/Permutation.html" width=800 height=600 frameBorder=0></iframe>
+The histogram visualizes the distribution of precision differences resulting from a permutation test conducted to assess the fairness of a predictive model. This model was tasked with predicting outcomes of League of Legends matches, and the permutation test compared the precision of predictions for teams from the North American League Championship Series (LCS) and the Korean League of Legends Champions Korea (LCK).
+
+The x-axis of the histogram represents the precision difference, while the y-axis indicates the count of occurrences within the permutation test. The distribution of differences is symmetrically centered around zero, indicating that there is no substantial difference in the precision of the model's predictions between the LCS and LCK groups.
+
+This symmetry suggests that the model does not exhibit a systematic bias towards one league over the other concerning the precision metric. The permutation test, visualized by this histogram, produced a p-value of 0.342, which exceeds the conventional significance threshold of 0.05. Consequently, the null hypothesis, stating that any observed difference in precision is due to random chance, cannot be rejected.
+
+The fairness analysis concluded that there is no statistical evidence of unfair bias in the model's performance between these two groups, as supported by both the permutation test and the visual evidence from the histogram. The permutation test's results and the histogram reinforce the conclusion that the predictive model operates with comparable precision across the LCS and LCK leagues within the scope of the data analyzed.
+
+<iframe src="assets/Kernel Density.png" width=800 height=600 frameBorder=0></iframe>
+
+
+
+### Kernel Density Estimate of Precision Differences
+The second image is a kernel density estimate (KDE) plot, which shows a smoothed estimate of the probability density function of the precision differences.
+
+- **Density**: The KDE plot suggests that the most common precision differences are centered around zero, indicating that most permutations did not result in a significant difference in precision between the two groups.
+- **Shape**: The smooth, bell-shaped curve of the KDE plot suggests a normal-like distribution of precision differences, which supports the null hypothesis that the observed differences in precision are due to random variation rather than a systematic bias.
+- **Spread**: The KDE plot shows that the precision differences are mostly concentrated near the center (around zero), which again suggests no evidence of bias in precision between the two groups.
+
+Both plots support the conclusion that the model's precision is fair across the two groups tested, as the observed differences are centered around zero and show no signs of a consistent bias towards either group. The permutation test resulted in a p-value that did not reach the conventional threshold for statistical significance, further suggesting that the observed differences in model precision can be attributed to random chance rather than unfairness or bias.
+
+
+
+
+
+<iframe src="assets/box.png" width=800 height=600 frameBorder=0></iframe>
+
+### Box Plot of Precision Differences
+The first image is a box plot, which provides a graphical representation of the distribution of precision differences from the permutation test. Here's what the box plot tells us:
+
+- **Central Tendency**: The line in the middle of the box indicates the median of the precision differences, which appears to be close to zero. This suggests that the median difference in model precision between the two groups across all permutations is negligible.
+- **Variability**: The box itself shows the interquartile range (IQR), which contains the middle 50% of the precision differences. The IQR does not seem to be skewed towards positive or negative values, reinforcing the finding that there is no substantial systematic difference in precision.
+- **Outliers**: The points outside the whiskers represent outliers, which are precision differences that lie beyond 1.5 times the IQR from the box. These outliers indicate that there are some permutations where the precision difference was notably higher or lower than typical, but these are relatively few.
+- **Symmetry**: The distribution appears roughly symmetrical about the median, with whiskers of similar lengths on both sides of the box.
