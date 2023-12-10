@@ -94,6 +94,15 @@ The model incorporates features indicative of early-game success and pivotal mom
 - **quadrakills**: High-impact plays like quadrakills can shift momentum and morale.
 - **xpdiffat15**: Experience leads contribute to level advantages, which are crucial for mid-game skirmishes.
 
+| firstherald   | firstdragon   |   firsttothreetowers |   golddiffat15 |   quadrakills |   xpdiffat15 |
+|:--------------|:--------------|---------------------:|---------------:|--------------:|-------------:|
+| False         | False         |                    0 |          -2667 |             0 |         -712 |
+| False         | True          |                    1 |           -513 |             0 |         -702 |
+| True          | False         |                    0 |            557 |             1 |        -1134 |
+| False         | True          |                    1 |           4306 |             0 |         2576 |
+| False         | True          |                    0 |          -4873 |             0 |        -2795 |
+| False         | True          |                    0 |           1881 |             0 |         1498 |
+
 #### Hyperparameter Tuning
 The RandomForestClassifier's performance depends heavily on several key hyperparameters:
 - `n_estimators` defines the number of trees in the forest.
