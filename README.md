@@ -201,12 +201,11 @@ This symmetry suggests that the model does not exhibit a systematic bias towards
 
 The fairness analysis concluded that there is no statistical evidence of unfair bias in the model's performance between these two groups, as supported by both the permutation test and the visual evidence from the histogram. The permutation test's results and the histogram reinforce the conclusion that the predictive model operates with comparable precision across the LCS and LCK leagues within the scope of the data analyzed.
 
-<iframe src="assets/Kernel Density.png" width=800 height=600 frameBorder=0></iframe>
-
 
 
 ### Kernel Density Estimate of Precision Differences
-The second image is a kernel density estimate (KDE) plot, which shows a smoothed estimate of the probability density function of the precision differences.
+
+<iframe src="assets/Kernel Density.png" width=800 height=600 frameBorder=0></iframe>
 
 - **Density**: The KDE plot suggests that the most common precision differences are centered around zero, indicating that most permutations did not result in a significant difference in precision between the two groups.
 - **Shape**: The smooth, bell-shaped curve of the KDE plot suggests a normal-like distribution of precision differences, which supports the null hypothesis that the observed differences in precision are due to random variation rather than a systematic bias.
@@ -216,12 +215,10 @@ Both plots support the conclusion that the model's precision is fair across the 
 
 
 
-
+### Box Plot of Precision Differences
 
 <iframe src="assets/box.png" width=800 height=600 frameBorder=0></iframe>
 
-### Box Plot of Precision Differences
-The first image is a box plot, which provides a graphical representation of the distribution of precision differences from the permutation test. Here's what the box plot tells us:
 
 - **Central Tendency**: The line in the middle of the box indicates the median of the precision differences, which appears to be close to zero. This suggests that the median difference in model precision between the two groups across all permutations is negligible.
 - **Variability**: The box itself shows the interquartile range (IQR), which contains the middle 50% of the precision differences. The IQR does not seem to be skewed towards positive or negative values, reinforcing the finding that there is no substantial systematic difference in precision.
