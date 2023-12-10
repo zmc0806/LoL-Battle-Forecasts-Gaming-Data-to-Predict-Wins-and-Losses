@@ -65,3 +65,54 @@ While the model demonstrates a reasonable ability to identify class 0 (loss), it
 
 #### Conclusion
 The current baseline model provides a starting point but is not yet "good" in terms of predictive performance. Its moderate accuracy and imbalanced precision and recall suggest that it is better at predicting losses than wins. To improve the model, it would be advisable to incorporate additional features that capture more aspects of the game, such as team composition, historical performance, or pre-game strategies. Further model tuning and exploration of different algorithms might also yield better results.
+
+
+
+### Detailed Report for Final Model
+
+#### Model Overview
+The final predictive model for League of Legends match outcomes is a RandomForestClassifier. This ensemble learning method operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) of the individual trees.
+
+#### Features and Engineering
+The model incorporates features indicative of early-game success and pivotal moments that could influence the match outcome:
+
+- **firstherald**: Teams securing the first Rift Herald can leverage its pushing power for early map control.
+- **firstdragon**: The first Dragon grants a permanent buff, providing a lasting advantage.
+- **firsttothreetowers**: Early tower leads often correlate with map control and gold advantage.
+- **golddiffat15**: Gold leads at 15 minutes reflect early game dominance, which can predict success.
+- **quadrakills**: High-impact plays like quadrakills can shift momentum and morale.
+- **xpdiffat15**: Experience leads contribute to level advantages, which are crucial for mid-game skirmishes.
+
+#### Hyperparameter Tuning
+The RandomForestClassifier's performance depends heavily on several key hyperparameters:
+- `n_estimators` defines the number of trees in the forest.
+- `max_depth` controls the maximum depth of the trees.
+- `min_samples_split` specifies the minimum number of samples required to split an internal node.
+- `min_samples_leaf` sets the minimum number of samples required to be at a leaf node.
+
+The optimal values for these parameters were determined through a grid search, balancing model complexity and overfitting. The best hyperparameters were:
+- `max_depth`: 10
+- `min_samples_leaf`: 2
+- `min_samples_split`: 2
+- `n_estimators`: 100
+
+#### Performance Metrics
+The model's performance improved significantly over the baseline model:
+- **Cross-Validation Score**: 78.43%
+- **Test Accuracy**: 79.15%
+- **Precision**: 79% for both classes
+- **Recall**: 79% for both classes
+- **F1-Score**: 79% for both classes
+
+#### Confusion Matrix Interpretation
+The confusion matrix provides insight into the accuracy of predictions:
+
+- **True Positives (TP)**: 2561 matches were correctly predicted as wins.
+- **True Negatives (TN)**: 2466 matches were correctly predicted as losses.
+- **False Positives (FP)**: 651 matches were incorrectly predicted as wins.
+- **False Negatives (FN)**: 673 matches were incorrectly predicted as losses.
+
+The matrix shows a balanced prediction capability for both classes with a slightly higher misclassification rate for predicting wins.
+
+#### Conclusion
+The final model demonstrates a robust predictive capability, significantly outperforming the baseline model. The thoughtful selection of features, reflecting key strategic elements of the game, combined with careful hyperparameter tuning, has resulted in a model that is well-suited for predicting the outcomes of League of Legends matches. The balanced precision and recall indicate that the model is just as good at predicting losses as it is at predicting wins, making it a valuable tool for analysts and enthusiasts alike.
