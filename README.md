@@ -28,21 +28,11 @@ When building the model, it's crucial to ensure that only information known befo
 - whether the team secured the first Herald of the game.
 - whether the team secured the first Dragon of the game.
 
-| firstherald | firstdragon | firsttothreetowers | golddiffat15 | quadrakills | xpdiffat15 |
-|:-----------:|:-----------:|:------------------:|:------------:|:-----------:|:----------:|
-|    True     |    False    |         1          |     107      |      0      |   -1617    |
-|    False    |    True     |         0          |    -107      |      0      |    1617    |
-|    True     |    False    |         0          |   -1763      |      0      |    -906    |
-|    False    |    True     |         1          |    1763      |      0      |     906    |
-|    False    |    True     |         1          |    1191      |      0      |    2298    |
-|    True     |    False    |         0          |   -1191      |      0      |   -2298    |
-
 
 **Excluded Features:**
 - In-game statistics like total kills, dragons slain, barons taken, etc., as these are outcomes determined during the game.
 
 In summary, the goal is to build a binary classification model to predict whether a team will win or lose a LoL game, using pre-game data and evaluating the model primarily on accuracy, with a consideration for the F1-score if necessary.
-
 
 
 
@@ -55,6 +45,16 @@ The baseline model for predicting the outcome (win or lose) of a League of Legen
 The model uses two features from the `team_data_cleaned` dataset:
 1. **firstherald**: Indicates whether the team secured the first Herald of the game.
 2. **firstdragon**: Indicates whether the team secured the first Dragon of the game.
+
+| firstherald | firstdragon |
+|:-----------:|:-----------:|
+|    True     |    False    |
+|    False    |    True     |
+|    True     |    False    |
+|    False    |    True     |
+|    False    |    True     |
+|    True     |    False    |
+
 
 Both of these features are boolean (True/False), which in the context of this model, are treated as binary (1/0). Therefore, they are both nominal variables, representing distinct categories without any intrinsic ordering.
 
