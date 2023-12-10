@@ -105,6 +105,9 @@ The model's performance improved significantly over the baseline model:
 - **F1-Score**: 79% for both classes
 
 #### Confusion Matrix Interpretation
+
+<iframe src="assets/Confusion Matrix.png" width=800 height=600 frameBorder=0></iframe>
+
 The confusion matrix provides insight into the accuracy of predictions:
 
 - **True Positives (TP)**: 2561 matches were correctly predicted as wins.
