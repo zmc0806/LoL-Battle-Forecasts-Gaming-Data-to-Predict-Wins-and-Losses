@@ -21,11 +21,11 @@
 
 When building the model, it's crucial to ensure that only information known before the start of the game is used for prediction. Features that are determined or revealed during or after the game (such as total kills, total gold earned, etc.) should not be included, as they would not be available at the time of prediction. Instead, we focus on pre-game factors like team composition, historical performance, player statistics, etc.
 
-**Suitable Features for Prediction:** (Examples)
+**Suitable Features for Prediction:**
 - Team's historical win rate
 - Average gold difference at 10/15 minutes (from previous games)
-- Player performance metrics (from previous games)
-- Team composition and strategy (e.g., champion picks)
+- whether the team secured the first Herald of the game.
+- whether the team secured the first Dragon of the game.
 
 **Excluded Features:**
 - In-game statistics like total kills, dragons slain, barons taken, etc., as these are outcomes determined during the game.
