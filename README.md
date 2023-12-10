@@ -151,4 +151,5 @@ Given the p-value of 0.342, which is greater than the significance level of 0.05
 It is critical to approach these results with an understanding that they do not definitively prove the absence of bias; rather, they indicate that within the constraints of our analysis, bias was not detected. Fairness in predictive modeling is a multifaceted issue that extends beyond statistical measures and should be considered with broader ethical perspectives.
 
 #### Optional Visualization
-At this time, I'm unable to directly embed visualizations into a website or produce interactive elements within this environment. However, visualizations such as histograms or density plots of the permuted precision differences could be created and provided as static images to supplement this report if necessary.
+
+<iframe src="assets/Permutation.html" width=800 height=600 frameBorder=0></iframe>
