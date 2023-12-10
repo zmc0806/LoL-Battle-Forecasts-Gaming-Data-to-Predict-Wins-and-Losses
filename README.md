@@ -31,3 +31,37 @@ When building the model, it's crucial to ensure that only information known befo
 - In-game statistics like total kills, dragons slain, barons taken, etc., as these are outcomes determined during the game.
 
 In summary, the goal is to build a binary classification model to predict whether a team will win or lose a LoL game, using pre-game data and evaluating the model primarily on accuracy, with a consideration for the F1-score if necessary.
+
+
+
+
+### Baseline Model Report
+
+#### Model Description
+The baseline model for predicting the outcome (win or lose) of a League of Legends (LoL) esports match is based on a Random Forest Classifier. This model was chosen for its robustness and ability to handle both linear and non-linear relationships. Random Forest is also less likely to overfit compared to some other models, making it a good choice for a baseline model.
+
+#### Features Used in the Model
+The model uses two features from the `team_data_cleaned` dataset:
+1. **firstherald**: Indicates whether the team secured the first Herald of the game.
+2. **firstdragon**: Indicates whether the team secured the first Dragon of the game.
+
+Both of these features are boolean (True/False), which in the context of this model, are treated as binary (1/0). Therefore, they are both nominal variables, representing distinct categories without any intrinsic ordering.
+
+#### Feature Encoding
+Given that the features are binary, no complex encoding was necessary. The boolean values were simply converted to integers (1 for True, 0 for False) to facilitate their use in the Random Forest model. This approach is straightforward and preserves the nature of the data.
+
+#### Model Performance
+The model's performance was evaluated on a held-out test set, representing 30% of the total dataset. The key metrics for evaluation were:
+- **Accuracy**: 57.72%
+- **Precision**: 54% (for class 0), 69% (for class 1)
+- **Recall**: 86% (for class 0), 31% (for class 1)
+- **F1-Score**: 67% (for class 0), 43% (for class 1)
+
+#### Assessment of the Model
+While the model demonstrates a reasonable ability to identify class 0 (loss), it struggles with class 1 (win), as indicated by the lower recall and F1-score for class 1. The overall accuracy of 57.72% is somewhat better than random guessing but is not particularly high for practical use.
+
+- **Strengths**: The model is simple and interpretable. It focuses on early-game indicators which are known to have some influence on the game's outcome.
+- **Limitations**: The chosen features may not have a strong enough relationship with the outcome by themselves. League of Legends games are complex and are likely influenced by a multitude of factors.
+
+#### Conclusion
+The current baseline model provides a starting point but is not yet "good" in terms of predictive performance. Its moderate accuracy and imbalanced precision and recall suggest that it is better at predicting losses than wins. To improve the model, it would be advisable to incorporate additional features that capture more aspects of the game, such as team composition, historical performance, or pre-game strategies. Further model tuning and exploration of different algorithms might also yield better results.
