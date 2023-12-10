@@ -103,6 +103,23 @@ The model incorporates features indicative of early-game success and pivotal mom
 | False         | True          |                    0 |          -4873 |             0 |        -2795 |
 | False         | True          |                    0 |           1881 |             0 |         1498 |
 
+#### Box plot about some features
+
+<iframe src="assets/result_golddiffat15.html" width=800 height=600 frameBorder=0></iframe>
+
+The boxplot visualizes the relationship between the outcome of a match (victory or defeat) and the gold difference at the 15-minute mark (golddiffat15).
+
+- **Victory (True)**: For matches that resulted in a victory, the median gold difference is close to zero, indicating that teams can win even with a minimal lead at 15 minutes. However, there are also victories with significant positive gold differences, shown by the outliers.
+
+- **Defeat (False)**: Conversely, for matches that resulted in a defeat, the median gold difference is also around zero, but there are more negative outliers. This suggests that some losses were associated with a substantial gold deficit at the 15 minutes mark.
+
+The analysis suggests that while the gold difference at 15 minutes influences the match's outcome, it is not the sole determining factor. Both victory and defeat have medians near zero, indicating that the final result may be influenced by various factors beyond the gold difference at this specific time.
+
+The distribution could imply that the model's uncertainty in predicting victories might be less than in predicting defeats due to the more concentrated distribution of gold differences for victories and more dispersed for defeats.
+
+Lastly, if the chart serves to inform gaming strategies, it might suggest that maintaining a balanced or slightly positive gold difference at 15 minutes could be a viable strategy, as there are considerable chances to win even with a small gold lead.
+
+
 #### Hyperparameter Tuning
 The RandomForestClassifier's performance depends heavily on several key hyperparameters:
 - `n_estimators` defines the number of trees in the forest.
