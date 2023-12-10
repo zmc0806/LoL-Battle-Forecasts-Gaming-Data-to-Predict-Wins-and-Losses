@@ -116,3 +116,39 @@ The matrix shows a balanced prediction capability for both classes with a slight
 
 #### Conclusion
 The final model demonstrates a robust predictive capability, significantly outperforming the baseline model. The thoughtful selection of features, reflecting key strategic elements of the game, combined with careful hyperparameter tuning, has resulted in a model that is well-suited for predicting the outcomes of League of Legends matches. The balanced precision and recall indicate that the model is just as good at predicting losses as it is at predicting wins, making it a valuable tool for analysts and enthusiasts alike.
+
+
+
+### Fairness Analysis Report
+
+#### Group Selection
+For the fairness analysis of the final model, two groups were identified based on the league to which the teams belong:
+
+- **Group X (LCS)**: Teams from the North American League Championship Series.
+- **Group Y (LCK)**: Teams from the Korean League of Legends Champions Korea.
+
+These groups were chosen to explore whether the model's performance differed between two prominent and distinct regions in professional League of Legends, where strategic and playstyle differences might influence the outcome of matches.
+
+#### Evaluation Metric
+The evaluation metric chosen for this analysis was **precision**, which measures the ratio of correctly predicted positive observations to the total predicted positive observations. Precision was selected because it reflects the model's ability to correctly identify wins without being influenced by the number of losses.
+
+#### Hypotheses
+The null and alternative hypotheses for the permutation test were defined as follows:
+
+- **Null Hypothesis (H0):** The model is fair across the two groups. The precision for the LCS and LCK is approximately the same, and any observed differences are due to random chance.
+  
+- **Alternative Hypothesis (H1):** The model is unfair. There is a significant difference in precision between the LCS and LCK groups, indicating bias in the model's performance.
+
+#### Test Statistic and Significance Level
+The test statistic chosen was the difference in precision between the LCS and LCK groups. The significance level (alpha) was set at 0.05, commonly used in statistical analysis to control the chance of falsely rejecting the null hypothesis.
+
+#### Permutation Test and P-value
+The permutation test involved randomly shuffling the league labels among the teams in the test set and recalculating the difference in precision between the two groups across 1,000 permutations. The resulting p-value was **0.342**.
+
+#### Conclusion
+Given the p-value of 0.342, which is greater than the significance level of 0.05, we do not have sufficient evidence to reject the null hypothesis. This suggests that the observed difference in precision between the LCS and LCK groups within the context of this model and data is not statistically significant. Consequently, we conclude that there is no indication of unfair bias in the model's predictions between these two groups based on the precision metric.
+
+It is critical to approach these results with an understanding that they do not definitively prove the absence of bias; rather, they indicate that within the constraints of our analysis, bias was not detected. Fairness in predictive modeling is a multifaceted issue that extends beyond statistical measures and should be considered with broader ethical perspectives.
+
+#### Optional Visualization
+At this time, I'm unable to directly embed visualizations into a website or produce interactive elements within this environment. However, visualizations such as histograms or density plots of the permuted precision differences could be created and provided as static images to supplement this report if necessary.
