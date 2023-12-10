@@ -1,5 +1,6 @@
 # lol-win-or-lose-Model-Building
 
+
 ### Prediction Problem
 
 **Problem Statement:** Predicting the outcome (win or lose) of a League of Legends (LoL) game for a team based on match data.
@@ -26,6 +27,16 @@ When building the model, it's crucial to ensure that only information known befo
 - Average gold difference at 10/15 minutes (from previous games)
 - whether the team secured the first Herald of the game.
 - whether the team secured the first Dragon of the game.
+
+| firstherald | firstdragon | firsttothreetowers | golddiffat15 | quadrakills | xpdiffat15 |
+|:-----------:|:-----------:|:------------------:|:------------:|:-----------:|:----------:|
+|    True     |    False    |         1          |     107      |      0      |   -1617    |
+|    False    |    True     |         0          |    -107      |      0      |    1617    |
+|    True     |    False    |         0          |   -1763      |      0      |    -906    |
+|    False    |    True     |         1          |    1763      |      0      |     906    |
+|    False    |    True     |         1          |    1191      |      0      |    2298    |
+|    True     |    False    |         0          |   -1191      |      0      |   -2298    |
+
 
 **Excluded Features:**
 - In-game statistics like total kills, dragons slain, barons taken, etc., as these are outcomes determined during the game.
