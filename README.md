@@ -1,4 +1,4 @@
-# lol-win-or-lose-Model-Building
+# LoL Battle Forecasts: Gaming Data to Predict Wins and Losses
 
 
 ### Prediction Problem
